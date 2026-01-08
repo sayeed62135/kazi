@@ -1,0 +1,698 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>বিশ্বাসযোগ্য আপনার ইলমু ক্বাজী</title>
+
+  <!-- Google Font (Bangla-friendly) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg1:#fbf6ea;
+      --bg2:#f6e7c7;
+      --gold:#b88a2e;
+      --gold2:#d2b169;
+      --text:#2b2b2b;
+      --muted:#6c6c6c;
+      --card:#ffffffcc;
+      --shadow: 0 18px 50px rgba(0,0,0,.10);
+      --radius: 18px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Hind Siliguri", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background: radial-gradient(1200px 700px at 70% 20%, #ffffff 0%, var(--bg1) 40%, var(--bg2) 100%);
+      overflow-x:hidden;
+    }
+
+    /* ======= Container ======= */
+    .container{
+      width:min(1200px, 92vw);
+      margin:0 auto;
+    }
+
+    /* ======= Header / Nav ======= */
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(to bottom, rgba(251,246,234,.85), rgba(251,246,234,.55));
+      border-bottom: 1px solid rgba(184,138,46,.18);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:16px 0;
+      gap:16px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      text-decoration:none;
+      color:inherit;
+    }
+    .logo{
+      width:44px;height:44px;border-radius:14px;
+      background: linear-gradient(145deg, var(--gold2), var(--gold));
+      display:grid;place-items:center;
+      box-shadow: 0 10px 25px rgba(184,138,46,.25);
+      color:#fff;
+      font-weight:800;
+      letter-spacing:.5px;
+    }
+    .brand b{font-size:18px}
+    .brand small{display:block;color:var(--muted);margin-top:-4px}
+
+    nav ul{
+      list-style:none;
+      margin:0;padding:0;
+      display:flex;gap:18px;
+      align-items:center;
+    }
+    nav a{
+      text-decoration:none;
+      color:#3a3a3a;
+      font-weight:600;
+      padding:8px 10px;
+      border-radius:12px;
+      transition:.2s;
+    }
+    nav a:hover{
+      background: rgba(184,138,46,.10);
+      color: var(--gold);
+    }
+
+    .btn{
+      border:none;
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      color:#fff;
+      font-weight:700;
+      padding:10px 16px;
+      border-radius:14px;
+      cursor:pointer;
+      box-shadow: 0 14px 30px rgba(184,138,46,.22);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      transition:.2s transform;
+      white-space:nowrap;
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .btn.outline{
+      background: transparent;
+      color: var(--gold);
+      border: 2px solid rgba(184,138,46,.45);
+      box-shadow:none;
+    }
+
+    /* Mobile menu */
+    .menu-btn{
+      display:none;
+      background:transparent;
+      border:1px solid rgba(184,138,46,.30);
+      padding:10px 12px;
+      border-radius:12px;
+      font-weight:700;
+      cursor:pointer;
+    }
+
+    /* ======= Hero ======= */
+    .hero{
+      position:relative;
+      padding:58px 0 48px;
+    }
+
+    /* Decorative floral corner */
+    .ornament{
+      position:absolute;
+      inset:auto auto auto auto;
+      pointer-events:none;
+      opacity:.30;
+      filter: saturate(1.1);
+    }
+    .ornament.top-left{
+      top:-10px; left:-40px;
+      width:340px; height:340px;
+      transform: rotate(-8deg);
+      background:
+        radial-gradient(circle at 30% 30%, rgba(184,138,46,.35) 0 24%, transparent 25%),
+        radial-gradient(circle at 55% 45%, rgba(184,138,46,.25) 0 18%, transparent 19%),
+        radial-gradient(circle at 35% 60%, rgba(184,138,46,.20) 0 16%, transparent 17%),
+        radial-gradient(circle at 70% 60%, rgba(184,138,46,.18) 0 14%, transparent 15%);
+      mask: radial-gradient(circle at 30% 30%, #000 0 24%, transparent 25%) ,
+            radial-gradient(circle at 55% 45%, #000 0 18%, transparent 19%),
+            radial-gradient(circle at 35% 60%, #000 0 16%, transparent 17%),
+            radial-gradient(circle at 70% 60%, #000 0 14%, transparent 15%);
+    }
+
+    /* Big gold curve right */
+    .gold-curve{
+      position:absolute;
+      right:-260px;
+      top:120px;
+      width:720px;
+      height:520px;
+      border-radius: 999px;
+      background: radial-gradient(closest-side, rgba(184,138,46,.22), rgba(184,138,46,.10), transparent 70%);
+      transform: rotate(12deg);
+      pointer-events:none;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:28px;
+      align-items:center;
+    }
+
+    .hero h1{
+      margin:0 0 10px;
+      font-size: clamp(30px, 4vw, 54px);
+      line-height:1.05;
+      letter-spacing:-.4px;
+      color: var(--gold);
+      text-shadow: 0 8px 24px rgba(184,138,46,.14);
+    }
+
+    .hero p{
+      margin: 0 0 18px;
+      color: #4f4f4f;
+      font-size: 18px;
+      line-height:1.6;
+      max-width: 52ch;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top: 6px;
+    }
+
+    /* Profile (right side) */
+    .profile-wrap{
+      position:relative;
+      display:flex;
+      justify-content:flex-end;
+    }
+
+    .profile-card{
+      width:min(430px, 100%);
+      background: var(--card);
+      border: 1px solid rgba(184,138,46,.22);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .profile-card:before{
+      content:"";
+      position:absolute;
+      inset:-60px -90px auto auto;
+      width:220px;height:220px;border-radius:50%;
+      background: radial-gradient(circle at 30% 30%, rgba(184,138,46,.30), transparent 70%);
+      transform: rotate(10deg);
+    }
+
+    .avatar{
+      width:100%;
+      aspect-ratio: 4 / 3.4;
+      border-radius: 16px;
+      overflow:hidden;
+      background: linear-gradient(135deg, rgba(184,138,46,.18), rgba(210,177,105,.08));
+      display:grid;
+      place-items:center;
+      position:relative;
+      border: 1px solid rgba(184,138,46,.18);
+    }
+
+    .avatar img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      object-position: center;
+      display:block;
+    }
+
+    .profile-meta{
+      margin-top: 14px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .profile-meta h3{
+      margin:0;
+      font-size: 20px;
+      color:#2c2c2c;
+    }
+    .profile-meta .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(184,138,46,.12);
+      border: 1px solid rgba(184,138,46,.20);
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 13px;
+      white-space:nowrap;
+    }
+    .profile-meta p{
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height:1.5;
+    }
+
+    /* ======= Sections ======= */
+    section{
+      padding: 22px 0 58px;
+    }
+    .section-title{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:18px;
+    }
+    .section-title h2{
+      margin:0;
+      font-size: 26px;
+      color:#2b2b2b;
+    }
+    .section-title span{
+      color: var(--gold);
+      font-weight:800;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:16px;
+    }
+    .card{
+      background:#fff;
+      border:1px solid rgba(184,138,46,.18);
+      border-radius: var(--radius);
+      padding:18px;
+      box-shadow: 0 14px 40px rgba(0,0,0,.06);
+    }
+    .card b{
+      display:block;
+      font-size:18px;
+      margin-bottom:6px;
+      color:#2b2b2b;
+    }
+    .card p{
+      margin:0;
+      color:#5a5a5a;
+      line-height:1.6;
+    }
+
+    .steps{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:14px;
+    }
+    .step{
+      background: rgba(255,255,255,.75);
+      border: 1px solid rgba(184,138,46,.18);
+      border-radius: var(--radius);
+      padding:16px;
+    }
+    .step .num{
+      width:34px;height:34px;border-radius:12px;
+      display:grid;place-items:center;
+      background: rgba(184,138,46,.14);
+      border: 1px solid rgba(184,138,46,.22);
+      color: var(--gold);
+      font-weight:900;
+      margin-bottom:10px;
+    }
+    .step b{display:block;margin-bottom:6px}
+    .step p{margin:0;color:#5a5a5a;line-height:1.55}
+
+    /* ======= Contact ======= */
+    .contact{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+      align-items:start;
+    }
+    .contact .box{
+      background:#fff;
+      border:1px solid rgba(184,138,46,.18);
+      border-radius: var(--radius);
+      padding:18px;
+      box-shadow: 0 14px 40px rgba(0,0,0,.06);
+    }
+    label{display:block;font-weight:700;margin:10px 0 6px}
+    input, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(0,0,0,.12);
+      outline:none;
+      font-family:inherit;
+      font-size:16px;
+      background:#fff;
+    }
+    input:focus, textarea:focus{
+      border-color: rgba(184,138,46,.55);
+      box-shadow: 0 0 0 4px rgba(184,138,46,.12);
+    }
+
+    footer{
+      border-top: 1px solid rgba(184,138,46,.18);
+      padding: 18px 0 26px;
+      color:#6a6a6a;
+      background: rgba(251,246,234,.60);
+    }
+    .foot{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    /* ======= Responsive ======= */
+    @media (max-width: 980px){
+      nav ul{display:none}
+      .menu-btn{display:inline-flex}
+      .hero-grid{grid-template-columns: 1fr}
+      .profile-wrap{justify-content:flex-start}
+      .cards{grid-template-columns: 1fr}
+      .steps{grid-template-columns: 1fr 1fr}
+      .contact{grid-template-columns: 1fr}
+      .gold-curve{right:-420px}
+    }
+
+    .mobile-nav{
+      display:none;
+      padding: 0 0 16px;
+    }
+    .mobile-nav a{
+      display:block;
+      padding:10px 12px;
+      border-radius: 12px;
+      text-decoration:none;
+      color:#3a3a3a;
+      font-weight:700;
+      margin-top:8px;
+      background: rgba(184,138,46,.08);
+      border: 1px solid rgba(184,138,46,.14);
+    }
+    .mobile-nav.show{display:block}
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="#home">
+          <div class="logo">KZ</div>
+          <div>
+            <b>ইলমু ক্বাজী</b>
+            <small>নিকাহ ও পরামর্শ সেবা</small>
+          </div>
+        </a>
+
+        <nav>
+          <ul>
+            <li><a href="#contact">যোগাযোগ</a></li>
+            <li><a href="#services">নিকাহ সেবা</a></li>
+            <li><a href="#how">কিভাবে কাজ করে</a></li>
+            <li><a href="#about">কাজী সম্পর্কে</a></li>
+          </ul>
+        </nav>
+
+        <button class="menu-btn" id="menuBtn">মেনু</button>
+        <a class="btn" href="#contact">বুকিং করুন</a>
+      </div>
+
+      <div class="mobile-nav" id="mobileNav">
+        <a href="#contact">যোগাযোগ</a>
+        <a href="#services">নিকাহ সেবা</a>
+        <a href="#how">কিভাবে কাজ করে</a>
+        <a href="#about">কাজী সম্পর্কে</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="home">
+    <div class="hero">
+      <div class="ornament top-left"></div>
+      <div class="gold-curve"></div>
+
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Left -->
+          <div>
+            <h1>বিশ্বাসযোগ্য আপনার<br>ইলমু ক্বাজী</h1>
+            <p>
+              এখানে ইসলামী শরীয়া অনুযায়ী বিবাহ বন্ধনে আবদ্ধ ও দালিলিক কাজ সম্পন্ন করা হয়।
+              স্বচ্ছতা, গোপনীয়তা এবং দায়িত্বশীল সেবা নিশ্চিত করা হয়।
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn outline" href="#services">বিস্তারিত দেখুন</a>
+              <a class="btn" href="#contact">এখনই যোগাযোগ</a>
+            </div>
+          </div>
+
+          <!-- Right -->
+          <div class="profile-wrap">
+            <div class="profile-card">
+              <div class="avatar">
+                <!-- আপনার ছবি বসাতে: hero.jpg নাম দিয়ে একই ফোল্ডারে রাখুন -->
+                <img src="hero.jpg" alt="কাজীর ছবি (Placeholder)">
+              </div>
+
+              <div class="profile-meta">
+                <div>
+                  <h3>মাওলানা (নাম লিখুন)</h3>
+                  <p>রেজিঃ কাজী | ইসলামি বিবাহ ও পরামর্শ</p>
+                </div>
+                <div class="tag">✓ যাচাইকৃত</div>
+              </div>
+
+              <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+                <a class="btn outline" href="tel:+8801XXXXXXXXX">কল করুন</a>
+                <a class="btn" href="https://wa.me/8801XXXXXXXXX" target="_blank" rel="noopener">WhatsApp</a>
+              </div>
+              <p style="margin-top:12px;color:#6a6a6a;font-size:14px;">
+                * নম্বর/হোয়াটসঅ্যাপ লিংক পরিবর্তন করুন।
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Services -->
+    <section id="services">
+      <div class="container">
+        <div class="section-title">
+          <h2><span>নিকাহ</span> সেবা</h2>
+          <a class="btn outline" href="#contact">সেবা নিন</a>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <b>ইসলামী নিকাহ সম্পন্ন</b>
+            <p>শরীয়া মোতাবেক সাক্ষী, ইজাব-কবুল, মোহর নির্ধারণসহ নিকাহ সম্পন্ন করা হয়।</p>
+          </div>
+          <div class="card">
+            <b>দালিলিক সহায়তা</b>
+            <p>প্রয়োজনীয় কাগজপত্র, তথ্য যাচাই, রেজিস্ট্রেশন সহায়তা (আপনার নিয়ম অনুযায়ী)।</p>
+          </div>
+          <div class="card">
+            <b>পারিবারিক পরামর্শ</b>
+            <p>বিয়ের আগে/পরে পারিবারিক বোঝাপড়া, দায়িত্ব, অধিকার বিষয়ে সহায়তা।</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how">
+      <div class="container">
+        <div class="section-title">
+          <h2><span>কিভাবে</span> কাজ করে</h2>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="num">১</div>
+            <b>যোগাযোগ করুন</b>
+            <p>কল/হোয়াটসঅ্যাপে আপনার প্রয়োজন জানান।</p>
+          </div>
+          <div class="step">
+            <div class="num">২</div>
+            <b>তথ্য যাচাই</b>
+            <p>প্রয়োজনীয় তথ্য/ডকুমেন্ট চেক করা হবে।</p>
+          </div>
+          <div class="step">
+            <div class="num">৩</div>
+            <b>সময় নির্ধারণ</b>
+            <p>নিকাহের তারিখ ও জায়গা সেট করা হবে।</p>
+          </div>
+          <div class="step">
+            <div class="num">৪</div>
+            <b>নিকাহ সম্পন্ন</b>
+            <p>শরীয়া অনুযায়ী নিকাহ সম্পন্ন ও দোয়া।</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="container">
+        <div class="section-title">
+          <h2><span>কাজী</span> সম্পর্কে</h2>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <b>অভিজ্ঞতা</b>
+            <p>আপনার অভিজ্ঞতা/সার্ভিস এরিয়া/উপজেলা/জেলা এখানে লিখুন।</p>
+          </div>
+          <div class="card">
+            <b>গোপনীয়তা</b>
+            <p>সব তথ্য গোপন রাখা হয় এবং সম্মানের সাথে সেবা প্রদান করা হয়।</p>
+          </div>
+          <div class="card">
+            <b>বিশ্বাসযোগ্যতা</b>
+            <p>স্বচ্ছ প্রক্রিয়া, সময়মতো সেবা এবং পরিষ্কার নির্দেশনা।</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-title">
+          <h2><span>যোগাযোগ</span> করুন</h2>
+        </div>
+
+        <div class="contact">
+          <div class="box">
+            <b style="font-size:18px;">বুকিং ফর্ম</b>
+            <p style="margin:6px 0 12px;color:#5a5a5a;line-height:1.6;">
+              নিচের ফর্ম পূরণ করলে আপনি চাইলে এটাকে WhatsApp/Email-এ পাঠানোর সিস্টেমও করে দিতে পারি।
+            </p>
+
+            <form onsubmit="return sendBooking(event)">
+              <label>নাম</label>
+              <input id="name" required placeholder="আপনার নাম লিখুন" />
+
+              <label>মোবাইল</label>
+              <input id="phone" required placeholder="01XXXXXXXXX" />
+
+              <label>ঠিকানা/এলাকা</label>
+              <input id="area" placeholder="উপজেলা/জেলা" />
+
+              <label>মেসেজ</label>
+              <textarea id="msg" rows="4" placeholder="নিকাহের তারিখ/জায়গা/বিশেষ তথ্য"></textarea>
+
+              <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+                <button class="btn" type="submit">WhatsApp-এ পাঠান</button>
+                <a class="btn outline" href="tel:+8801XXXXXXXXX">সরাসরি কল</a>
+              </div>
+            </form>
+          </div>
+
+          <div class="box">
+            <b style="font-size:18px;">অফিস/লোকেশন</b>
+            <p style="margin:8px 0;color:#5a5a5a;line-height:1.7;">
+              📍 ঠিকানা: আপনার ঠিকানা এখানে লিখুন<br>
+              🕒 সময়: প্রতিদিন সকাল ৯টা – রাত ১০টা<br>
+              ☎️ মোবাইল: +8801XXXXXXXXX<br>
+              ✉️ ইমেইল: example@email.com
+            </p>
+
+            <div style="margin-top:12px;">
+              <b style="display:block;margin-bottom:8px;">Google Map (ঐচ্ছিক)</b>
+              <div style="border-radius:16px; overflow:hidden; border:1px solid rgba(184,138,46,.18);">
+                <!-- এখানে আপনার Google Map embed বসাতে পারবেন -->
+                <iframe
+                  title="map"
+                  width="100%" height="260"
+                  style="border:0"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  src="https://maps.google.com/maps?q=Dhaka%20Bangladesh&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="foot">
+        <div>© <span id="year"></span> ইলমু ক্বাজী — সর্বস্বত্ব সংরক্ষিত</div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <a class="btn outline" href="#home">উপরে যান</a>
+          <a class="btn" href="#contact">বুকিং করুন</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    menuBtn.addEventListener('click', () => {
+      mobileNav.classList.toggle('show');
+    });
+
+    // Booking -> WhatsApp message
+    function sendBooking(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const area = document.getElementById('area').value.trim();
+      const msg  = document.getElementById('msg').value.trim();
+
+      const toNumber = "8801XXXXXXXXX"; // এখানে আপনার WhatsApp নম্বর বসান (8801...)
+      const text =
+`বুকিং রিকোয়েস্ট
+নাম: ${name}
+মোবাইল: ${phone}
+এলাকা: ${area || "-"}
+মেসেজ: ${msg || "-"}`;
+
+      const url = "https://wa.me/" + toNumber + "?text=" + encodeURIComponent(text);
+      window.open(url, "_blank");
+      return false;
+    }
+  </script>
+</body>
+</html>
