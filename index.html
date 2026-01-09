@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ঘটকপাখি</title>
+  <title>ঘটকপাখি - নিকাহ ও পরামর্শ সেবা</title>
+  <meta name="description" content="ইসলামী শরীয়া অনুযায়ী বিশ্বাসযোগ্য নিকাহ সেবা। রেজিস্টার্ড কাজী মাওলানা ইউনুস।">
 
   <!-- Google Font (Bangla-friendly) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,6 +31,7 @@
       color:var(--text);
       background: radial-gradient(1200px 700px at 70% 20%, #ffffff 0%, var(--bg1) 40%, var(--bg2) 100%);
       overflow-x:hidden;
+      min-height: 100vh;
     }
 
     /* ======= Container ======= */
@@ -63,16 +65,26 @@
       color:inherit;
     }
     .logo{
-      width:44px;height:44px;border-radius:14px;
+      width:44px;
+      height:44px;
+      border-radius:14px;
       background: linear-gradient(145deg, var(--gold2), var(--gold));
-      display:grid;place-items:center;
+      display:grid;
+      place-items:center;
       box-shadow: 0 10px 25px rgba(184,138,46,.25);
       color:#fff;
       font-weight:800;
+      font-size: 22px;
       letter-spacing:.5px;
     }
+    .logo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      border-radius:14px;
+    }
     .brand b{font-size:18px}
-    .brand small{display:block;color:var(--muted);margin-top:-4px}
+    .brand small{display:block;color:var(--muted);margin-top:-4px;font-size:13px}
 
     nav ul{
       list-style:none;
@@ -108,6 +120,7 @@
       gap:8px;
       transition:.2s transform;
       white-space:nowrap;
+      font-size: 15px;
     }
     .btn:hover{transform: translateY(-1px)}
     .btn.outline{
@@ -126,6 +139,7 @@
       border-radius:12px;
       font-weight:700;
       cursor:pointer;
+      color: var(--gold);
     }
 
     /* ======= Hero ======= */
@@ -151,10 +165,6 @@
         radial-gradient(circle at 55% 45%, rgba(184,138,46,.25) 0 18%, transparent 19%),
         radial-gradient(circle at 35% 60%, rgba(184,138,46,.20) 0 16%, transparent 17%),
         radial-gradient(circle at 70% 60%, rgba(184,138,46,.18) 0 14%, transparent 15%);
-      mask: radial-gradient(circle at 30% 30%, #000 0 24%, transparent 25%) ,
-            radial-gradient(circle at 55% 45%, #000 0 18%, transparent 19%),
-            radial-gradient(circle at 35% 60%, #000 0 16%, transparent 17%),
-            radial-gradient(circle at 70% 60%, #000 0 14%, transparent 15%);
     }
 
     /* Big gold curve right */
@@ -247,6 +257,11 @@
       display:block;
     }
 
+    .avatar-placeholder{
+      font-size: 80px;
+      color: rgba(184,138,46,.35);
+    }
+
     .profile-meta{
       margin-top: 14px;
       display:flex;
@@ -279,6 +294,13 @@
       line-height:1.5;
     }
 
+    .contact-buttons{
+      margin-top:14px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
     /* ======= Sections ======= */
     section{
       padding: 22px 0 58px;
@@ -289,6 +311,7 @@
       justify-content:space-between;
       gap:16px;
       margin-bottom:18px;
+      flex-wrap: wrap;
     }
     .section-title h2{
       margin:0;
@@ -311,6 +334,10 @@
       border-radius: var(--radius);
       padding:18px;
       box-shadow: 0 14px 40px rgba(0,0,0,.06);
+      transition: .2s transform;
+    }
+    .card:hover{
+      transform: translateY(-2px);
     }
     .card b{
       display:block;
@@ -334,6 +361,10 @@
       border: 1px solid rgba(184,138,46,.18);
       border-radius: var(--radius);
       padding:16px;
+      transition: .2s transform;
+    }
+    .step:hover{
+      transform: translateY(-2px);
     }
     .step .num{
       width:34px;height:34px;border-radius:12px;
@@ -391,6 +422,23 @@
       flex-wrap:wrap;
     }
 
+    /* Info box styling */
+    .info-box{
+      margin: 8px 0;
+      color:#5a5a5a;
+      line-height:1.7;
+    }
+    .info-box p{
+      margin: 4px 0;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .info-box .icon{
+      font-size: 16px;
+      min-width: 20px;
+    }
+
     /* ======= Responsive ======= */
     @media (max-width: 980px){
       nav ul{display:none}
@@ -401,6 +449,16 @@
       .steps{grid-template-columns: 1fr 1fr}
       .contact{grid-template-columns: 1fr}
       .gold-curve{right:-420px}
+      .section-title{
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 640px){
+      .steps{grid-template-columns: 1fr}
+      .hero h1{font-size: 32px}
+      .hero p{font-size: 16px}
     }
 
     .mobile-nav{
@@ -419,6 +477,9 @@
       border: 1px solid rgba(184,138,46,.14);
     }
     .mobile-nav.show{display:block}
+
+    /* Smooth scroll */
+    html{scroll-behavior: smooth}
   </style>
 </head>
 
@@ -428,7 +489,9 @@
       <div class="nav">
         <a class="brand" href="#home">
           <div class="logo">
-            <img src="logo.png" alt="কাজীর ছবি (Placeholder)">
+            <!-- আপনার লোগো ইমেজ থাকলে নিচের কমেন্ট খুলুন এবং ঘ সরান -->
+            <!-- <img src="logo.png" alt="লোগো"> -->
+            ঘ
           </div>
           <div>
             <b>ঘটকপাখি</b>
@@ -438,22 +501,22 @@
 
         <nav>
           <ul>
-            <li><a href="#contact">যোগাযোগ</a></li>
-            <li><a href="#services">নিকাহ সেবা</a></li>
-            <li><a href="#how">কিভাবে কাজ করে</a></li>
             <li><a href="#about">কাজী সম্পর্কে</a></li>
+            <li><a href="#how">কিভাবে কাজ করে</a></li>
+            <li><a href="#services">নিকাহ সেবা</a></li>
+            <li><a href="#contact">যোগাযোগ</a></li>
           </ul>
         </nav>
 
-        <button class="menu-btn" id="menuBtn">মেনু</button>
+        <button class="menu-btn" id="menuBtn">☰ মেনু</button>
         <a class="btn" href="#contact">বুকিং করুন</a>
       </div>
 
       <div class="mobile-nav" id="mobileNav">
-        <a href="#contact">যোগাযোগ</a>
-        <a href="#services">নিকাহ সেবা</a>
-        <a href="#how">কিভাবে কাজ করে</a>
         <a href="#about">কাজী সম্পর্কে</a>
+        <a href="#how">কিভাবে কাজ করে</a>
+        <a href="#services">নিকাহ সেবা</a>
+        <a href="#contact">যোগাযোগ</a>
       </div>
     </div>
   </header>
@@ -469,13 +532,13 @@
           <div>
             <h1>আপনাদের বিশ্বাসযোগ্য<br>ঘটকপাখি</h1>
             <p>
-              এখানে ইসলামী শরীয়া অনুযায়ী বিবাহ বন্ধনে আবদ্ধ ও দালিলিক কাজ সম্পন্ন করা হয়।
+              ইসলামী শরীয়া অনুযায়ী বিবাহ বন্ধনে আবদ্ধ ও দালিলিক কাজ সম্পন্ন করা হয়।
               স্বচ্ছতা, গোপনীয়তা এবং দায়িত্বশীল সেবা নিশ্চিত করা হয়।
             </p>
 
             <div class="hero-actions">
-              <a class="btn outline" href="#services">বিস্তারিত দেখুন</a>
               <a class="btn" href="#contact">এখনই যোগাযোগ</a>
+              <a class="btn outline" href="#services">বিস্তারিত দেখুন</a>
             </div>
           </div>
 
@@ -483,51 +546,48 @@
           <div class="profile-wrap">
             <div class="profile-card">
               <div class="avatar">
-                <!-- আপনার ছবি বসাতে: hero.jpg নাম দিয়ে একই ফোল্ডারে রাখুন -->
-                <img src="IMG_0042.png" alt="কাজীর ছবি (Placeholder)">
+                <!-- আপনার ছবি আপলোড করতে: নিচের কমেন্ট খুলুন এবং placeholder সরান -->
+                <img src="IMG_0042.png" alt="মাওলানা কাজী ইউনুস" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div class="avatar-placeholder" style="display:none;">👤</div>
               </div>
 
               <div class="profile-meta">
                 <div>
-                  <h3>মাওলানা কাজী ইউনুস </h3>
-                  <p>রেজিঃ কাজী | ইসলামি বিবাহ ও পরামর্শ</p>
+                  <h3>মাওলানা কাজী ইউনুস</h3>
+                  <p>রেজিস্টার্ড কাজী | ইসলামি বিবাহ ও পরামর্শ</p>
                 </div>
                 <div class="tag">✓ যাচাইকৃত</div>
               </div>
 
-              <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
-                <a class="btn outline" href="tel:+8801XXXXXXXXX">কল করুন</a>
-                <a class="btn" href="https://wa.me/8801XXXXXXXXX" target="_blank" rel="noopener">WhatsApp</a>
+              <div class="contact-buttons">
+                <a class="btn outline" href="tel:+8801700000000">📞 কল করুন</a>
+                <a class="btn" href="https://wa.me/8801700000000" target="_blank" rel="noopener">💬 WhatsApp</a>
               </div>
-              <p style="margin-top:12px;color:#6a6a6a;font-size:14px;">
-                
-              </p>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Services -->
-    <section id="services">
+    <!-- About -->
+    <section id="about">
       <div class="container">
         <div class="section-title">
-          <h2><span>নিকাহ</span> সেবা</h2>
-          <a class="btn outline" href="#contact">সেবা নিন</a>
+          <h2><span>কাজী</span> সম্পর্কে</h2>
         </div>
 
         <div class="cards">
           <div class="card">
-            <b>ইসলামী নিকাহ সম্পন্ন</b>
-            <p>শরীয়া মোতাবেক সাক্ষী, ইজাব-কবুল, মোহর নির্ধারণসহ নিকাহ সম্পন্ন করা হয়।</p>
+            <b>✨ অভিজ্ঞতা</b>
+            <p>দীর্ঘ ১০+ বছরের অভিজ্ঞতা। ঢাকা ও আশেপাশের এলাকায় সেবা প্রদান করা হয়।</p>
           </div>
           <div class="card">
-            <b>দালিলিক সহায়তা</b>
-            <p>প্রয়োজনীয় কাগজপত্র, তথ্য যাচাই, রেজিস্ট্রেশন সহায়তা (আপনার নিয়ম অনুযায়ী)।</p>
+            <b>🔒 গোপনীয়তা</b>
+            <p>সব তথ্য সম্পূর্ণ গোপন রাখা হয় এবং সম্মানের সাথে সেবা প্রদান করা হয়।</p>
           </div>
           <div class="card">
-            <b>পারিবারিক পরামর্শ</b>
-            <p>বিয়ের আগে/পরে পারিবারিক বোঝাপড়া, দায়িত্ব, অধিকার বিষয়ে সহায়তা।</p>
+            <b>✅ বিশ্বাসযোগ্যতা</b>
+            <p>স্বচ্ছ প্রক্রিয়া, সময়মতো সেবা এবং পরিষ্কার নির্দেশনা নিশ্চিত করা হয়।</p>
           </div>
         </div>
       </div>
@@ -549,12 +609,12 @@
           <div class="step">
             <div class="num">২</div>
             <b>তথ্য যাচাই</b>
-            <p>প্রয়োজনীয় তথ্য/ডকুমেন্ট চেক করা হবে।</p>
+            <p>প্রয়োজনীয় তথ্য ও ডকুমেন্ট চেক করা হবে।</p>
           </div>
           <div class="step">
             <div class="num">৩</div>
             <b>সময় নির্ধারণ</b>
-            <p>নিকাহের তারিখ ও জায়গা সেট করা হবে।</p>
+            <p>নিকাহের তারিখ ও স্থান নির্ধারণ করা হবে।</p>
           </div>
           <div class="step">
             <div class="num">৪</div>
@@ -565,25 +625,26 @@
       </div>
     </section>
 
-    <!-- About -->
-    <section id="about">
+    <!-- Services -->
+    <section id="services">
       <div class="container">
         <div class="section-title">
-          <h2><span>কাজী</span> সম্পর্কে</h2>
+          <h2><span>নিকাহ</span> সেবা সমূহ</h2>
+          <a class="btn outline" href="#contact">সেবা নিন</a>
         </div>
 
         <div class="cards">
           <div class="card">
-            <b>অভিজ্ঞতা</b>
-            <p>আপনার অভিজ্ঞতা/সার্ভিস এরিয়া/উপজেলা/জেলা এখানে লিখুন।</p>
+            <b>💍 ইসলামী নিকাহ সম্পন্ন</b>
+            <p>শরীয়া মোতাবেক সাক্ষী, ইজাব-কবুল, মোহর নির্ধারণসহ নিকাহ সম্পন্ন করা হয়।</p>
           </div>
           <div class="card">
-            <b>গোপনীয়তা</b>
-            <p>সব তথ্য গোপন রাখা হয় এবং সম্মানের সাথে সেবা প্রদান করা হয়।</p>
+            <b>📄 দালিলিক সহায়তা</b>
+            <p>প্রয়োজনীয় কাগজপত্র, তথ্য যাচাই, রেজিস্ট্রেশন সহায়তা প্রদান করা হয়।</p>
           </div>
           <div class="card">
-            <b>বিশ্বাসযোগ্যতা</b>
-            <p>স্বচ্ছ প্রক্রিয়া, সময়মতো সেবা এবং পরিষ্কার নির্দেশনা।</p>
+            <b>👨‍👩‍👧 পারিবারিক পরামর্শ</b>
+            <p>বিয়ের আগে/পরে পারিবারিক বোঝাপড়া, দায়িত্ব ও অধিকার বিষয়ে সহায়তা।</p>
           </div>
         </div>
       </div>
@@ -598,51 +659,52 @@
 
         <div class="contact">
           <div class="box">
-            <b style="font-size:18px;">বুকিং ফর্ম</b>
+            <b style="font-size:18px;">📝 বুকিং ফর্ম</b>
             <p style="margin:6px 0 12px;color:#5a5a5a;line-height:1.6;">
-              নিচের ফর্ম পূরণ করলে আপনি চাইলে এটাকে WhatsApp/Email-এ পাঠানোর সিস্টেমও করে দিতে পারি।
+              নিচের ফর্মটি পূরণ করে সরাসরি WhatsApp-এ পাঠান।
             </p>
 
             <form onsubmit="return sendBooking(event)">
-              <label>নাম</label>
-              <input id="name" required placeholder="আপনার নাম লিখুন" />
+              <label>নাম *</label>
+              <input id="name" required placeholder="আপনার পূর্ণ নাম লিখুন" />
 
-              <label>মোবাইল</label>
-              <input id="phone" required placeholder="01XXXXXXXXX" />
+              <label>মোবাইল নম্বর *</label>
+              <input id="phone" type="tel" required placeholder="01XXXXXXXXX" pattern="01[0-9]{9}" />
 
               <label>ঠিকানা/এলাকা</label>
               <input id="area" placeholder="উপজেলা/জেলা" />
 
-              <label>মেসেজ</label>
-              <textarea id="msg" rows="4" placeholder="নিকাহের তারিখ/জায়গা/বিশেষ তথ্য"></textarea>
+              <label>বিস্তারিত তথ্য</label>
+              <textarea id="msg" rows="4" placeholder="নিকাহের তারিখ, স্থান এবং অন্যান্য বিশেষ তথ্য লিখুন"></textarea>
 
               <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
-                <button class="btn" type="submit">WhatsApp-এ পাঠান</button>
-                <a class="btn outline" href="tel:+8801XXXXXXXXX">সরাসরি কল</a>
+                <button class="btn" type="submit">📱 WhatsApp-এ পাঠান</button>
+                <a class="btn outline" href="tel:+8801700000000">📞 সরাসরি কল</a>
               </div>
             </form>
           </div>
 
           <div class="box">
-            <b style="font-size:18px;">অফিস/লোকেশন</b>
-            <p style="margin:8px 0;color:#5a5a5a;line-height:1.7;">
-              📍 ঠিকানা: আপনার ঠিকানা এখানে লিখুন<br>
-              🕒 সময়: প্রতিদিন সকাল ৯টা – রাত ১০টা<br>
-              ☎️ মোবাইল: +8801XXXXXXXXX<br>
-              ✉️ ইমেইল: example@email.com
-            </p>
+            <b style="font-size:18px;">📍 যোগাযোগের তথ্য</b>
+            
+            <div class="info-box">
+              <p><span class="icon">📍</span> <span><strong>ঠিকানা:</strong> [আপনার সম্পূর্ণ ঠিকানা এখানে লিখুন]</span></p>
+              <p><span class="icon">🕒</span> <span><strong>সময়:</strong> প্রতিদিন সকাল ৯টা – রাত ৯টা</span></p>
+              <p><span class="icon">☎️</span> <span><strong>মোবাইল:</strong> <a href="tel:+8801700000000" style="color:var(--gold);text-decoration:none">+880 1700-000000</a></span></p>
+              <p><span class="icon">✉️</span> <span><strong>ইমেইল:</strong> <a href="mailto:example@email.com" style="color:var(--gold);text-decoration:none">example@email.com</a></span></p>
+            </div>
 
-            <div style="margin-top:12px;">
-              <b style="display:block;margin-bottom:8px;">Google Map (ঐচ্ছিক)</b>
+            <div style="margin-top:18px;">
+              <b style="display:block;margin-bottom:10px;">🗺️ আমাদের অবস্থান</b>
               <div style="border-radius:16px; overflow:hidden; border:1px solid rgba(184,138,46,.18);">
-                <!-- এখানে আপনার Google Map embed বসাতে পারবেন -->
+                <!-- আপনার Google Map embed link এখানে বসান -->
                 <iframe
-                  title="map"
+                  title="অবস্থান"
                   width="100%" height="260"
                   style="border:0"
                   loading="lazy"
                   referrerpolicy="no-referrer-when-downgrade"
-                  src="https://maps.google.com/maps?q=Dhaka%20Bangladesh&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+                  src="https://maps.google.com/maps?q=Dhaka,Bangladesh&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
               </div>
             </div>
           </div>
@@ -655,9 +717,11 @@
   <footer>
     <div class="container">
       <div class="foot">
-        <div>© <span id="year"></span>ঘটকপাখি — সর্বস্বত্ব সংরক্ষিত</div>
+        <div>
+          © <span id="year"></span> ঘটকপাখি — সর্বস্বত্ব সংরক্ষিত
+        </div>
         <div style="display:flex;gap:10px;flex-wrap:wrap;">
-          <a class="btn outline" href="#home">উপরে যান</a>
+          <a class="btn outline" href="#home">⬆ উপরে যান</a>
           <a class="btn" href="#contact">বুকিং করুন</a>
         </div>
       </div>
@@ -668,31 +732,46 @@
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Mobile menu
+    // Mobile menu toggle
     const menuBtn = document.getElementById('menuBtn');
     const mobileNav = document.getElementById('mobileNav');
     menuBtn.addEventListener('click', () => {
       mobileNav.classList.toggle('show');
+      menuBtn.textContent = mobileNav.classList.contains('show') ? '✕ বন্ধ' : '☰ মেনু';
     });
 
-    // Booking -> WhatsApp message
+    // Close mobile menu on link click
+    document.querySelectorAll('.mobile-nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('show');
+        menuBtn.textContent = '☰ মেনু';
+      });
+    });
+
+    // Booking form -> WhatsApp
     function sendBooking(e){
       e.preventDefault();
+      
       const name = document.getElementById('name').value.trim();
       const phone = document.getElementById('phone').value.trim();
       const area = document.getElementById('area').value.trim();
-      const msg  = document.getElementById('msg').value.trim();
+      const msg = document.getElementById('msg').value.trim();
 
-      const toNumber = "8801XXXXXXXXX"; // এখানে আপনার WhatsApp নম্বর বসান (8801...)
-      const text =
-`বুকিং রিকোয়েস্ট
-নাম: ${name}
-মোবাইল: ${phone}
-এলাকা: ${area || "-"}
-মেসেজ: ${msg || "-"}`;
+      // আপনার WhatsApp নম্বর এখানে দিন (দেশ কোড সহ, + চিহ্ন ছাড়া)
+      const toNumber = "8801700000000";
+      
+      const text = `🕌 নিকাহ বুকিং রিকোয়েস্ট
+
+👤 নাম: ${name}
+📱 মোবাইল: ${phone}
+📍 এলাকা: ${area || "উল্লেখ নেই"}
+💬 বিস্তারিত: ${msg || "উল্লেখ নেই"}
+
+— ঘটকপাখি`;
 
       const url = "https://wa.me/" + toNumber + "?text=" + encodeURIComponent(text);
       window.open(url, "_blank");
+      
       return false;
     }
   </script>
