@@ -55,7 +55,7 @@
       pointer-events: none;
     }
 
-    h1, h2, h3, h4 { line-height: 1.25; font-weight: 700; color: var(--text-main); }
+    h1, h2, h3, h4 { line-height: 1.25; font-weight: 700; color: var(--text-main); font-family: "Hind Siliguri", sans-serif; }
     a { text-decoration: none; color: inherit; transition: var(--transition); }
     ul { list-style: none; }
     img { max-width: 100%; display: block; }
@@ -84,6 +84,7 @@
       white-space: nowrap;
       position: relative;
       overflow: hidden;
+      font-family: "Hind Siliguri", sans-serif;
     }
 
     /* Button Icon Animation */
@@ -173,11 +174,13 @@
       display: block;
       font-size: 20px;
       color: var(--text-main);
+      font-family: "Hind Siliguri", sans-serif;
     }
     .brand-text span {
       font-size: 13px;
       color: var(--text-muted);
       font-weight: 500;
+      font-family: "Hind Siliguri", sans-serif;
     }
 
     .desktop-nav ul { display: flex; gap: 32px; align-items: center; }
@@ -185,6 +188,7 @@
       font-weight: 500;
       color: var(--text-muted);
       position: relative;
+      font-family: "Hind Siliguri", sans-serif;
     }
     .desktop-nav a:hover, .desktop-nav a.active {
       color: var(--primary);
@@ -227,6 +231,7 @@
       border-radius: 8px;
       font-weight: 600;
       color: var(--text-main);
+      font-family: "Hind Siliguri", sans-serif;
     }
     .mobile-nav a:hover { background: var(--primary-light); color: var(--primary); }
     
@@ -238,6 +243,93 @@
       transition: 0.3s;
     }
     .overlay.active { opacity: 1; pointer-events: auto; }
+
+    /* ======= Premium Popup Styles (Updated) ======= */
+    .premium-popup {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+      z-index: 9999; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s ease-in-out;
+    }
+    .premium-popup.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .popup-card {
+      background: #fff;
+      width: 90%;
+      max-width: 450px;
+      padding: 40px 30px;
+      border-radius: 24px;
+      text-align: center;
+      position: relative;
+      transform: scale(0.8) translateY(20px);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(184, 138, 46, 0.2);
+      /* ফন্ট ফিক্স করা হয়েছে */
+      font-family: "Hind Siliguri", sans-serif; 
+    }
+    .premium-popup.active .popup-card {
+      transform: scale(1) translateY(0);
+    }
+    .popup-close-btn {
+      position: absolute;
+      top: 15px; right: 15px;
+      background: #f1f1f1;
+      border: none;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+      color: #666;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.2s;
+    }
+    .popup-close-btn:hover {
+      background: #e0e0e0;
+      color: #000;
+    }
+    .popup-icon-wrapper {
+      width: 100px; /* সাইজ একটু বড় করা হয়েছে */
+      height: 100px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border-radius: 50%;
+      display: grid; /* Flex এর বদলে Grid ব্যবহার করা হয়েছে লোগো সেন্টার করার জন্য */
+      place-items: center;
+      margin: 0 auto 25px;
+      box-shadow: 0 10px 25px rgba(184, 138, 46, 0.4);
+      animation: pulse 2s infinite;
+      padding: 15px; /* লোগোর চারপাশে স্পেস */
+    }
+    .popup-card h2 {
+      font-size: 26px;
+      margin-bottom: 10px;
+      color: var(--primary-dark);
+      font-family: "Hind Siliguri", sans-serif;
+    }
+    .popup-card p {
+      color: var(--text-muted);
+      font-size: 16px; /* সাইজ বাড়ানো হয়েছে পড়ার সুবিধার জন্য */
+      margin-bottom: 25px;
+      line-height: 1.7;
+      font-family: "Hind Siliguri", sans-serif;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(184, 138, 46, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(184, 138, 46, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(184, 138, 46, 0); }
+    }
 
     /* ======= Hero Section ======= */
     .hero {
@@ -554,7 +646,7 @@
       padding: 14px 16px;
       border-radius: 12px;
       border: 1px solid #ddd;
-      font-family: inherit;
+      font-family: "Hind Siliguri", sans-serif;
       font-size: 15px;
       transition: var(--transition);
       background: #f9f9f9;
@@ -666,6 +758,26 @@
   </style>
 </head>
 <body>
+
+  <!-- Premium Welcome Popup (Updated) -->
+  <div class="premium-popup" id="premiumPopup">
+    <div class="popup-card">
+      <button class="popup-close-btn" onclick="closePopup()">
+        <i class="ph ph-x"></i>
+      </button>
+      <div class="popup-icon-wrapper">
+        <!-- আইকন এর বদলে লোগো ইমেজ দেওয়া হয়েছে -->
+        <img src="logo.png" alt="লোগো" style="width: 70%; height: 70%; object-fit: contain;">
+      </div>
+      <h2>আসসালামু আলাইকুম</h2>
+      <p>
+        বিশ্বস্ত ও স্বচ্ছ নিকাহ সেবার বিশ্বস্ত নাম <strong>ঘটকপাখি</strong>-তে আপনাকে স্বাগতম। আমরা আপনার সুখী দাম্পত্য জীবনের প্রথম পদক্ষেপে পাশে আছি।
+      </p>
+      <button class="btn btn-primary" onclick="closePopup()" style="width: 100%;">
+        শুরু করি <i class="ph ph-arrow-right"></i>
+      </button>
+    </div>
+  </div>
 
   <!-- Mobile Menu Overlay -->
   <div class="overlay" id="overlay"></div>
@@ -864,21 +976,21 @@
         <div class="grid-3">
           <div class="testimonial-card reveal">
             <div class="user-img">
-              <img src="https://artifacts-cdn.chatglm.site/https://picsum.photos/seed/user1/100/100" alt="User">
+              <img src="https://picsum.photos/seed/user1/100/100" alt="User">
             </div>
             <p class="quote">"আলহামদুলিল্লাহ, ঘটকপাখির মাধ্যমে আমাদের বিয়ে অত্যন্ত সহজে ও সুন্দরভাবে সম্পন্ন হয়েছে। খুবই ধন্যবাদ।"</p>
             <h4 class="user-name">- আব্দুল্লাহ আল মামুন</h4>
           </div>
           <div class="testimonial-card reveal">
             <div class="user-img">
-              <img src="https://artifacts-cdn.chatglm.site/https://picsum.photos/seed/user2/100/100" alt="User">
+              <img src="https://picsum.photos/seed/user2/100/100" alt="User">
             </div>
             <p class="quote">"কাজী সাহেব অত্যন্ত ভদ্র এবং বিচক্ষণ। তাদের পরামর্শ আমাদের নতুন জীবন শুরু করতে অনেক সাহায্য করেছে।"</p>
             <h4 class="user-name">- সাদিয়া আফরিন</h4>
           </div>
           <div class="testimonial-card reveal">
             <div class="user-img">
-              <img src="https://artifacts-cdn.chatglm.site/https://picsum.photos/seed/user3/100/100" alt="User">
+              <img src="https://picsum.photos/seed/user3/100/100" alt="User">
             </div>
             <p class="quote">"দ্রুত সেবা এবং স্বচ্ছতার জন্য আমি তাদের সবাইকে রেকমেন্ড করব। সব কাগজপত্র ঠিকঠাক ছিল।"</p>
             <h4 class="user-name">- হাসান মাহমুদ</h4>
@@ -1001,10 +1113,28 @@
   </div>
 
   <script>
-    // 1. Set Year
+    // 1. Popup Logic
+    window.addEventListener('DOMContentLoaded', () => {
+      const popup = document.getElementById('premiumPopup');
+      // Show popup after a slight delay (e.g., 500ms)
+      setTimeout(() => {
+        popup.classList.add('active');
+      }, 500);
+    });
+
+    function closePopup() {
+      const popup = document.getElementById('premiumPopup');
+      popup.classList.remove('active');
+      // Optional: Remove from DOM after animation
+      setTimeout(() => {
+        popup.style.display = 'none';
+      }, 500);
+    }
+
+    // 2. Set Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // 2. Sticky Header & Scroll Top Button
+    // 3. Sticky Header & Scroll Top Button
     const header = document.getElementById('header');
     const scrollTopBtn = document.querySelector('.scrollTop');
 
@@ -1018,7 +1148,7 @@
       }
     });
 
-    // 3. Mobile Menu
+    // 4. Mobile Menu
     function toggleMenu() {
       const mobileNav = document.getElementById('mobileNav');
       const overlay = document.getElementById('overlay');
@@ -1035,7 +1165,7 @@
     // Close menu when clicking overlay
     document.getElementById('overlay').addEventListener('click', toggleMenu);
 
-    // 4. Scroll Reveal Animation (Intersection Observer)
+    // 5. Scroll Reveal Animation (Intersection Observer)
     const revealElements = document.querySelectorAll('.reveal');
     
     const revealObserver = new IntersectionObserver((entries) => {
@@ -1050,7 +1180,7 @@
 
     revealElements.forEach(el => revealObserver.observe(el));
 
-    // 5. WhatsApp Form Submission
+    // 6. WhatsApp Form Submission (FIXED ICONS)
     function sendToWhatsapp(e) {
       e.preventDefault();
       
@@ -1062,13 +1192,14 @@
       // নিচের নম্বরটি পরিবর্তন করে আপনার নম্বর বসান
       const whatsappNumber = "8801872695436"; 
 
+      // ব্যবহার করা ইমোজিগুলো (সাধারণ ইউনিকোড)
       const text = `আসসালামু আলাইকুম,%0a%0a*নতুন বুকিং রিকোয়েস্ট*%0a-----------------------%0a👤 নাম: ${name}%0a📱 ফোন: ${phone}%0a📍 ঠিকানা: ${address}%0a💬 বার্তা: ${message}`;
 
       window.open(`https://wa.me/${whatsappNumber}?text=${text}`, '_blank');
       return false;
     }
 
-    // 6. Image Error Handling (Fallback)
+    // 7. Image Error Handling (Fallback)
     document.getElementById('profileImg').onerror = function() {
       this.style.display = 'none';
       // Fallback if image is missing
